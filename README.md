@@ -45,19 +45,19 @@ Contributions to this project are welcome! If you would like to contribute, plea
 This project is licensed under the [MIT License](LICENSE).
 
 #### Calender Month View
-![Calender Month View](screenshots/calender-month-view.png)
+![Calender Month View](/screenshots/calender-month-view.png)
 
 #### Calender Week View
-![Calender Week View](screenshots/calender-week-view.png)
+![Calender Week View](/screenshots/calender-week-view.png)
 
 #### Calender Day View
-![Calender Day View](screenshots/calender-day-view.png)
+![Calender Day View](/screenshots/calender-day-view.png)
 
 #### List View
-![List View](screenshots/list-view.png)
+![List View](/screenshots/list-view.png)
 
 #### Table View
-![Table View](screenshots/table-view.png)
+![Table View](/screenshots/table-view.png)
 
 #### Add Default Contacts
-![Add Default Contacts](screenshots/add-default-contacts.png)
+![Add Default Contacts](/screenshots/add-default-contacts.png)
