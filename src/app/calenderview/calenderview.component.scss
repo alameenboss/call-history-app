@@ -1,0 +1,17 @@
+.events-list {
+  list-style-type: none; /* remove default bullet point */
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  li {
+    padding: 2px;
+    margin: 2px 0;
+    font-size: 13px;
+    font-weight: 700;
+  }
+}
+
+.cal-month-view .cal-cell-top {
+  max-height: 78px;
+}

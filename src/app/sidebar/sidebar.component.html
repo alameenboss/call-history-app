@@ -1,0 +1,64 @@
+<div class="sidebar-sticky" style="border-right: 2px dashed gray; height: 100%;">
+  <div class="d-flex flex-column">
+    <app-fileupload></app-fileupload>
+    <div mwlFlatpickr [altInput]="true" [convertModelValue]="true" [allowInput]="false" [inline]="true"
+      dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i" (flatpickrChange)="flatpickrChanged($event.selectedDates)"
+      (flatpickrMonthChange)="flatpickrMonthChanged($event.instance)"
+      (flatpickrYearChange)="flatpickrMonthChanged($event.instance)"></div>
+
+    <div class="btn-group" style="margin: 10px auto;">
+      <div class="btn btn-sm btn-primary" (click)="selectAllContact()">
+        Select All
+      </div>
+      
+      <div class="btn btn-sm btn-outline-secondary" (click)="removeAllContact()">
+        Remove All
+      </div>
+      <div class="btn btn-sm btn-outline-secondary" (click)="selectDefault()">
+        Default
+      </div>
+      <div class="btn btn-sm btn-outline-secondary" (click)="open(content)">
+        Add Default
+      </div>
+    </div>
+
+    <div class="d-flex flex-column" style="height: 400px; overflow-y: scroll;">
+      <div *ngFor="let contact of contacts">
+        <div class="form-check">
+          <input class="form-check-input" (change)="filterContact()" type="checkbox" [value]="contact.number"
+            [(ngModel)]="contact.checked" [id]="'contact-'+ contact.number" />
+          <label class="form-check-label" [for]="'contact-'+ contact.number">{{contact.number}} - {{contact.name}}
+
+          </label>
+          <span style="font-size: large; font-weight: 700;">
+            {{contact.count}}
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Add Default Contact</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div class="mb-3">
+				<label for="defaultContact">Add default contact</label>
+				<div class="input-group">
+          <textarea id="defaultContact"
+          class="form-control"
+          name="defaultContact" [(ngModel)] = "numbers"></textarea>
+					
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="saveContacts()">Save</button>
+	</div>
+</ng-template>

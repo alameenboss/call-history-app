@@ -1,0 +1,45 @@
+<form>
+  <div class="mb-3 row">
+    <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search:</label>
+    <div class="col-xs-3 col-sm-auto">
+      <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+    </div>
+  </div>
+</form>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Call Start Time</th>
+      <th scope="col">Call Type</th>
+      <th scope="col">Call TimeSpan</th>
+      <th scope="col">Call Sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let event of filteredEvent;index as i">
+      <th scope="row">{{i+1}}</th>
+      <td>
+        <ngb-highlight [result]="event.title" [term]="filter.value"></ngb-highlight>
+      </td>
+      <td>
+        <ngb-highlight [result]="event.phone" [term]="filter.value"></ngb-highlight>
+      </td>
+      <td>
+        <ngb-highlight [result]="event.start | date: 'dd/MM/yyyy hh:mm:ss a'"
+          [term]="filter.value"></ngb-highlight>
+      </td>
+      <td>
+        <ngb-highlight [result]="event.callType" [term]="filter.value"></ngb-highlight>
+      </td>
+      <td>
+        {{event.durationT}} 
+      </td>
+      <td>
+        {{event.durationS}} 
+      </td>
+    </tr>
+  </tbody>
+</table>
