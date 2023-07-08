@@ -1,0 +1,25 @@
+.file-upload {
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    border-bottom: 1px solid lightgrey;
+    box-shadow: 1px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.csvFileUpload {
+    width: 100%;
+    height: 100%;
+    border: 4px dashed gray;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    font-weight: 700;
+}

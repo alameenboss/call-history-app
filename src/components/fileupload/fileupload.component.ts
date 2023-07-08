@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgxCsvParser, NgxCSVParserError } from 'ngx-csv-parser';
-import { EventsService } from '../events.service';
 import { CallImportRecord } from '../../models/call-import-record.model';
+import { EventsService } from 'src/service/events.service';
 
 @Component({
   selector: 'app-fileupload',

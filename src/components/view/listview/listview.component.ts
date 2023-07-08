@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { EventsService } from '../events.service';
 import { CallDateType, CallImportRecord } from 'src/models/call-import-record.model';
+import { EventsService } from 'src/service/events.service';
 
 @Component({
   selector: 'app-listview',

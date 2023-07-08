@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { EventsService } from '../events.service';
-import { CallImportRecord, ContactType } from 'src/models/call-import-record.model';
-import { CalendarView } from 'angular-calendar';
 import { FormControl } from '@angular/forms';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ContactType, CallImportRecord } from 'src/models/call-import-record.model';
+import { EventsService } from 'src/service/events.service';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  selector: 'app-contact-list',
+  templateUrl: './contact-list.component.html',
+  styleUrls: ['./contact-list.component.scss']
 })
-export class SidebarComponent {
+export class ContactListComponent {
   numberList = [];
   filter = new FormControl('', { nonNullable: true });
   contacts: ContactType[] = [];
@@ -24,22 +23,13 @@ export class SidebarComponent {
       }
     })
 
-    this.eventService.defaultContacts$.subscribe((defaultContacts)=>{
+    this.eventService.defaultContacts$.subscribe((defaultContacts) => {
       this.numberList = defaultContacts;
       let events = this.eventService.getLatestsEvents();
       this.initContacts(events)
     })
   }
 
-  flatpickrChanged(selectedDates) {
-    this.eventService.setCalenderViewDate(selectedDates[0])
-    this.eventService.setCalenderView(CalendarView.Day)
-  }
-
-  flatpickrMonthChanged(instance) {
-    this.eventService.setCalenderView(CalendarView.Month)
-    this.eventService.setCalenderViewDate(new Date(instance.currentYear, instance.currentMonth, 1))
-  }
 
   selectAllContact() {
     this.contacts.forEach(x => x.checked = true)
@@ -102,19 +92,19 @@ export class SidebarComponent {
 
   closeResult = '';
   open(content) {
-		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
-			(result) => {
-				this.closeResult = `Closed with: ${result}`;
-			},
-			(reason) => {
-				this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-			},
-		);
-	}
-  numbers:string;
-  saveContacts(){
-    const trimmedItems = this.numbers.trim(); 
-    const splitItems = trimmedItems.split(","); 
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      },
+    );
+  }
+  numbers: string;
+  saveContacts() {
+    const trimmedItems = this.numbers.trim();
+    const splitItems = trimmedItems.split(",");
 
     const cleanedItems = splitItems.map(item => item.replace(/'/g, "").trim());
     this.eventService.setDefaultContacts(cleanedItems);
@@ -122,12 +112,12 @@ export class SidebarComponent {
   }
 
   private getDismissReason(reason: any): string {
-		if (reason === ModalDismissReasons.ESC) {
-			return 'by pressing ESC';
-		} else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-			return 'by clicking on a backdrop';
-		} else {
-			return `with: ${reason}`;
-		}
-	}
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 }

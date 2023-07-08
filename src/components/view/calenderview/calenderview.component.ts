@@ -11,9 +11,9 @@ import {
   CalendarView,
 } from 'angular-calendar';
 
-import { EventsService } from '../events.service';
 import { CallImportRecord, ContactType } from 'src/models/call-import-record.model';
 import { Subject } from 'rxjs';
+import { EventsService } from 'src/service/events.service';
 
 @Component({
   selector: 'app-calenderview',

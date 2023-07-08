@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EventsService } from '../events.service';
+import { EventsService } from 'src/service/events.service';
 
 @Component({
   selector: 'app-layout',

@@ -1,11 +1,12 @@
 <app-header></app-header>
 <div class="container-fluid">
   <div class="row">
-    <nav class="d-none d-md-block bg-light sidebar" style="width: 23%;">
-      <app-sidebar></app-sidebar>
+    <nav style="width: 20%;">
+      <app-fileupload></app-fileupload>
+      <app-contact-list></app-contact-list>
     </nav>
 
-    <main role="main" style="width: 77%;" class="pt-3 px-4" [ngSwitch]="eventService.eventView$ | async">
+    <main role="main" style="width: 57%;" class="pt-3 px-4" [ngSwitch]="eventService.eventView$ | async">
       <div id="calenderView" *ngSwitchCase="'calender'">
         <app-calenderview></app-calenderview>
       </div>
@@ -18,6 +19,8 @@
         <app-tableview></app-tableview>
       </div>
     </main>
-
+    <nav style="width: 23%;">
+      <app-sidebar></app-sidebar>
+    </nav>
   </div>
 </div>

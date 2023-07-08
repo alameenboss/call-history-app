@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { EventsService } from '../events.service';
 import { CallImportRecord } from 'src/models/call-import-record.model';
+import { EventsService } from 'src/service/events.service';
 
 @Component({
   selector: 'app-tableview',

@@ -1,0 +1,14 @@
+<div class="file-upload">
+    <label for="csvFileUpload" class="csvFileUpload">
+        Choose a file
+        <input type="file" #fileImportInput name="FileUpload" class="d-none" id="csvFileUpload" accept=".csv" />
+    </label>
+    <div class="form-group">
+        <label for="header" class="h6"> Parse Headers?</label>
+        <select class="form-control" aria-placeholder="Parse headers?" [(ngModel)]="header" id="header">
+            <option [value]="true">Yes</option>
+            <option [value]="false">No</option>
+        </select>
+    </div>
+    <button class="btn btn-sm btn-outline-dark m-2 active" (click)="fileChangeListener()"> Process</button>
+</div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EventsService } from '../events.service';
+import { EventsService } from 'src/service/events.service';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +11,8 @@ export class HeaderComponent {
     this.eventService.setEventView('calender')
   }
 
-  showCalender(value: string) {
+  showView(value: string) {
     this.eventService.setEventView(value)
-    // this.filterDate()
   }
 
 }

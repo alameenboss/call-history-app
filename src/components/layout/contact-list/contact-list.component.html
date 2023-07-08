@@ -1,0 +1,58 @@
+<div>
+  <div class="btn btn-sm btn-outline-dark m-2 active w-100" (click)="open(content)">
+    Add Default
+  </div>
+  <div class="btn-group w-100 m-2">
+    <div class="btn btn-sm btn-primary" (click)="selectAllContact()">
+      Select All
+    </div>
+    <div class="btn btn-sm btn-outline-dark" (click)="removeAllContact()">
+      Remove All
+    </div>
+    <div class="btn btn-sm btn-outline-dark" (click)="selectDefault()">
+      Default
+    </div>
+
+  </div>
+
+  
+
+  <ul class="list-group" style="height: 340px;overflow-x: auto;">
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let contact of contacts">
+
+      <label class="form-check-label d-flex align-items-center m-1" [for]="'contact-'+ contact.number">
+        <input class="form-check-input" (change)="filterContact()" type="checkbox" [value]="contact.number"
+          [(ngModel)]="contact.checked" [id]="'contact-'+ contact.number" />
+        <p class="d-flex flex-column p-2 m-0">
+          <b>{{contact.name}}</b>
+          <small> {{contact.number}} </small>
+        </p>
+
+      </label>
+
+      <span class="badge badge-pill btn btn-primary pull-right"> {{contact.count}}</span>
+    </li>
+  </ul>
+
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Default Contact</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="defaultContact">Add default contact</label>
+        <div class="input-group">
+          <textarea id="defaultContact" class="form-control" name="defaultContact" [(ngModel)]="numbers"></textarea>
+
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="saveContacts()">Save</button>
+  </div>
+</ng-template>

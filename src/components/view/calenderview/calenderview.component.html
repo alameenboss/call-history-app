@@ -8,11 +8,11 @@
         [class.active]="view === CalendarView.Month">
         Month
       </div>
-      <div class="btn btn-sm btn-outline-secondary" (click)="setView(CalendarView.Week)"
+      <div class="btn btn-sm btn-outline-dark" (click)="setView(CalendarView.Week)"
         [class.active]="view === CalendarView.Week">
         Week
       </div>
-      <div class="btn btn-sm btn-outline-secondary" (click)="setView(CalendarView.Day)"
+      <div class="btn btn-sm btn-outline-dark" (click)="setView(CalendarView.Day)"
         [class.active]="view === CalendarView.Day">
         Day
       </div>
@@ -22,15 +22,14 @@
 <div>
   <div [ngSwitch]="view">
     <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
-    [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" [cellTemplate]="customCellTemplate"
-    (dayClicked)="dayClicked($event.day)">
-  </mwl-calendar-month-view>
-  <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"
-    [refresh]="refresh">
-  </mwl-calendar-week-view>
-  <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events"
-    [refresh]="refresh">
-  </mwl-calendar-day-view>
+      [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" [cellTemplate]="customCellTemplate"
+      (dayClicked)="dayClicked($event.day)">
+    </mwl-calendar-month-view>
+    <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"
+      [refresh]="refresh">
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events" [refresh]="refresh">
+    </mwl-calendar-day-view>
   </div>
   <ng-template #customCellTemplate let-day="day" let-locale="locale">
     <div class="cal-cell-top">
@@ -39,12 +38,12 @@
     </div>
     <div style="margin: 5px">
       <ul class="events-list">
-        <li *ngFor="let dayEvent of day.events.slice(0, 3)" [ngbTooltip]="dayEvent.phone"
+        <li *ngFor="let dayEvent of day.events.slice(0, 2)" [ngbTooltip]="dayEvent.phone"
           [ngStyle]="{'background-color': stringToColour(dayEvent.title).b,'color': stringToColour(dayEvent.title).t}">
           {{dayEvent.title}}
         </li>
         <li *ngIf="day.badgeTotal > 3 " style="background-color: darkgray;">
-          Show {{day.events.length - 3}} more
+          Show {{day.events.length - 2}} more
         </li>
       </ul>
     </div>
