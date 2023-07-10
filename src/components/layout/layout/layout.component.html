@@ -6,7 +6,7 @@
       <app-contact-list></app-contact-list>
     </nav>
 
-    <main role="main" class="pt-3 px-4 main" [ngSwitch]="eventService.eventView$ | async">
+    <main role="main" class="pt-3 px-4 main" [ngClass]="showSideBar ? 'showSideBar': ''" [ngSwitch]="eventService.eventView$ | async">
       <div id="calenderView" *ngSwitchCase="'calender'">
         <app-calenderview></app-calenderview>
       </div>
