@@ -9,4 +9,9 @@ import { EventsService } from 'src/service/events.service';
 export class LayoutComponent {
   constructor(public eventService: EventsService) {    
   }
+
+  showSideBar = true;
+  handleToggleSidebar(event){
+    this.showSideBar = event;
+  }
 }

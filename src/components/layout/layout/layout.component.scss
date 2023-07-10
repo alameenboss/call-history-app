@@ -1,0 +1,17 @@
+.side-nav-left {
+    width: 0%;
+    display: none;
+}
+
+.side-nav-left.showSideBar {
+    width: 20%;
+    display: block;
+}
+
+.main {
+    width: 77%;
+}
+
+.main.showSideBar {
+    width: 57%;
+}

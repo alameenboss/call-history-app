@@ -1,12 +1,12 @@
-<app-header></app-header>
+<app-header (toggleSidebarEvent)="handleToggleSidebar($event)"></app-header>
 <div class="container-fluid">
   <div class="row">
-    <nav style="width: 20%;">
+    <nav class="side-nav-left" [ngClass]="showSideBar ? 'showSideBar': ''">
       <app-fileupload></app-fileupload>
       <app-contact-list></app-contact-list>
     </nav>
 
-    <main role="main" style="width: 57%;" class="pt-3 px-4" [ngSwitch]="eventService.eventView$ | async">
+    <main role="main" class="pt-3 px-4 main" [ngSwitch]="eventService.eventView$ | async">
       <div id="calenderView" *ngSwitchCase="'calender'">
         <app-calenderview></app-calenderview>
       </div>
