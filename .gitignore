@@ -42,3 +42,12 @@ testem.log
 Thumbs.db
 Utility/CallRecordingParser/Properties/launchSettings.json
 Utility/GenerateFakeData/Properties/launchSettings.json
+Utility/CallRecordingParser/.vs/*
+Utility/CallRecordingParser/bin/*
+Utility/CallRecordingParser/nupkg/*
+Utility/CallRecordingParser/obj/*
+Utility/GenerateFakeData/.vs/*
+Utility/GenerateFakeData/bin/*
+Utility/GenerateFakeData/nupkg/*
+Utility/GenerateFakeData/obj/*
+
