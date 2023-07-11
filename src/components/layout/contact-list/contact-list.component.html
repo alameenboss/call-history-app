@@ -13,20 +13,25 @@
       <div class="btn btn-sm btn-outline-dark" (click)="selectDefault()">
         Default
       </div>
-  
+
     </div>
+
+    <div class="mx-2 mb-2">
+      <input id="contact-search" class="form-control" type="text" [formControl]="filter" />
+
+    </div>
+
   </div>
 
 
-
-
   <ul class="list-group" style="height: 340px;overflow-x: auto;">
+
     <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let contact of contacts">
 
       <label class="form-check-label d-flex align-items-center m-1" [for]="'contact-'+ contact.number">
-        <input class="form-check-input" (change)="filterContact()" type="checkbox" [value]="contact.number"
+        <input class="form-check-input" (change)="selectContact(contact)" type="checkbox" [value]="contact.number"
           [(ngModel)]="contact.checked" [id]="'contact-'+ contact.number" />
-        <img src="{{'https://randomuser.me/api/portraits/men/'+contact.number.slice(0,2)+'.jpg'}}" class="contact-person">
+        <div class="contact-person">{{contact.number.slice(0,2)}}</div>
         <p class="d-flex flex-column p-2 m-0">
           <b>{{contact.name}}</b>
           <small> {{contact.number}} </small>

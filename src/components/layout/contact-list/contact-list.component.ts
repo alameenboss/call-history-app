@@ -13,7 +13,8 @@ export class ContactListComponent {
   numberList = [];
   filter = new FormControl('', { nonNullable: true });
   contacts: ContactType[] = [];
-  allEvents: CallImportRecord[] = [];
+  allContacts: ContactType[] = [];
+  selectedContact: ContactType[] = [];
 
   constructor(private eventService: EventsService,
     private modalService: NgbModal) {
@@ -28,22 +29,51 @@ export class ContactListComponent {
       let events = this.eventService.getLatestsEvents();
       this.initContacts(events)
     })
+
+    this.filter.valueChanges.subscribe(term => this.searchContact(term));
+  }
+
+  searchContact(searchTerm) {
+    if (searchTerm == '') {
+      this.contacts = this.allContacts;
+      this.filterContact();
+    } else {
+      let filtredContact = this.allContacts?.filter((event) => {
+        const term = searchTerm.toLowerCase();
+        return (
+          event.name.toLowerCase().includes(term) ||
+          event.number.includes(term)
+        );
+      });
+      this.contacts = filtredContact;
+    }
   }
 
 
   selectAllContact() {
-    this.contacts.forEach(x => x.checked = true)
+    this.allContacts.forEach(x => x.checked = true)
+    this.selectedContact = this.allContacts;
+    this.contacts = this.allContacts;
     this.filterContact();
   }
 
   removeAllContact() {
-    this.contacts.forEach(x => x.checked = false);
+    this.selectedContact = [];
+    this.allContacts.forEach(x => x.checked = false);
+    this.contacts = this.allContacts;
     this.filterContact();
   }
 
   selectDefault() {
+    this.contacts = this.allContacts;
+    this.selectedContact = [];
     this.contacts.forEach(x => {
       x.checked = this.numberList?.some(y => y == x.number) ? true : false
+
+      if (x.checked) {
+        this.selectedContact.push(x)
+      }
+
     });
 
     this.filterContact();
@@ -69,6 +99,7 @@ export class ContactListComponent {
 
     })
 
+    this.allContacts = this.contacts;
     this.sortContacts();
   }
 
@@ -84,8 +115,27 @@ export class ContactListComponent {
     });
   }
 
+  selectContact(contact) {
+    if (contact.checked) {
+      if (!this.selectedContact.find(y => y.number === contact.number)) {
+        this.selectedContact.push(contact)
+      }
+    } else {
+      let indexOfContact = this.selectedContact.findIndex(y => y.number === contact.number);
+
+      if (indexOfContact >= 0) {
+        this.selectedContact.splice(indexOfContact, 1)
+      }
+    }
+    this.filterContact()
+  }
+
   filterContact(): void {
-    let filteredContact = this.contacts.filter(item => item.checked).map((x) => x.number);
+    this.allContacts.forEach(x => {
+      x.checked = this.selectedContact?.some(y => y.number == x.number) ? true : false
+    });
+
+    let filteredContact = this.selectedContact.map((x) => x.number);
     this.sortContacts();
     this.eventService.setFilteredContacts(filteredContact);
   }
