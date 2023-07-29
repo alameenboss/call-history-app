@@ -10,6 +10,10 @@ This is an Angular application that allows users to view their call history in v
 - ***Import CSV***: Users can import a CSV file containing call records, which will be parsed and added to the application.
 - ***Filtering***: Users can filter their call history based on phone number, date, month, and year, allowing them to narrow down the displayed records.
 
+## Demo
+
+Check out the demo here ->  **[Demo](https://show-events.netlify.app/)** 
+
 ## Installation
 
 Follow these steps to install and run the application:
