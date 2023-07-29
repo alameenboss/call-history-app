@@ -16,7 +16,7 @@ export class HeaderComponent {
   }
 
   showSideBar = true;
-  
+
   toggleSidebar() {
     this.showSideBar = !this.showSideBar;
     this.toggleSidebarEvent.emit(this.showSideBar)

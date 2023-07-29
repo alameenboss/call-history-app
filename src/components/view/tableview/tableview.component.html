@@ -28,17 +28,16 @@
         <ngb-highlight [result]="event.phone" [term]="filter.value"></ngb-highlight>
       </td>
       <td>
-        <ngb-highlight [result]="event.start | date: 'dd/MM/yyyy hh:mm:ss a'"
-          [term]="filter.value"></ngb-highlight>
+        <ngb-highlight [result]="event.start | date: 'dd/MM/yyyy hh:mm:ss a'" [term]="filter.value"></ngb-highlight>
       </td>
       <td>
         <ngb-highlight [result]="event.callType" [term]="filter.value"></ngb-highlight>
       </td>
       <td>
-        {{event.durationT}} 
+        {{event.durationT}}
       </td>
       <td>
-        {{event.durationS}} 
+        {{event.durationS}}
       </td>
     </tr>
   </tbody>

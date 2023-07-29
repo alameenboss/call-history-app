@@ -7,11 +7,11 @@ import { EventsService } from 'src/service/events.service';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent {
-  constructor(public eventService: EventsService) {    
+  constructor(public eventService: EventsService) {
   }
 
   showSideBar = true;
-  handleToggleSidebar(event){
+  handleToggleSidebar(event) {
     this.showSideBar = event;
   }
 }

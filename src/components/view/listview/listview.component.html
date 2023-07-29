@@ -3,7 +3,7 @@
 <div class="card m-1" *ngFor="let event of filteredEvent">
   <div class="card-body">
     <h5 class="card-title">{{event.title}}
-       <span class="badge btn btn-danger">{{getTotalCallWhichIsMoreThan2Mins(event.callDate )}}</span>
+      <span class="badge btn btn-danger">{{getTotalCallWhichIsMoreThan2Mins(event.callDate )}}</span>
     </h5>
     <h6 class="card-subtitle mb-2 text-muted">
       {{event.phone}}
@@ -11,7 +11,7 @@
     <div class="card-text">
       <div *ngFor="let item of event.callDate">
         <p class="p-0 m-0">
-          {{item.date | date: 'dd/MM/yyyy hh:mm:ss a'}} | 
+          {{item.date | date: 'dd/MM/yyyy hh:mm:ss a'}} |
           <span class="warning">{{item.callType}}</span> | {{item.durationT}} | {{item.durationS }}
         </p>
       </div>

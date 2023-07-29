@@ -58,9 +58,9 @@ export class FileuploadComponent {
           title: rowItem.Name,
           phone: ph,
           callType: rowItem.Type,
-          durationT : rowItem.Duration_timespan,
-          durationS : rowItem.Duration_Sec,
-          
+          durationT: rowItem.Duration_timespan,
+          durationS: rowItem.Duration_Sec,
+
         })
     })
     return items;

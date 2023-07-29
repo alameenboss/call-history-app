@@ -20,7 +20,7 @@ export class TableviewComponent {
     this.filter.valueChanges.subscribe(term => this.serchEventsByTerm(term));
     this.eventService.calenderViewDate$.subscribe(() => this.serchEventsByTerm(''))
     this.eventService.calenderView$.subscribe(() => this.serchEventsByTerm(''))
-    this.eventService.filteredContacts$.subscribe(()=>this.serchEventsByTerm(''));
+    this.eventService.filteredContacts$.subscribe(() => this.serchEventsByTerm(''));
   }
 
 
