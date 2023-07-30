@@ -26,7 +26,7 @@ Follow these steps to install and run the application:
 
 ## Usage
 
-1. Importing CSV: On the application's interface, provide an option to import a CSV file. Users can click on the import button and select a CSV file containing call records. Once the file is selected, parse it and add the call events to the application.Attached [sample.csv](/sample_data.csv) to test.
+1. Importing CSV: On the application's interface, provide an option to import a CSV file. Users can click on the import button and select a CSV file containing call records. Once the file is selected, parse it and add the call events to the application.Attached [sample.csv](/documentation/sample_data.csv) to test.
 
 2. Viewing Call History: Provide navigation or tabs for users to switch between calendar, list, and table views. Each view should display the call records based on the selected format. By default, display the list view.
 
@@ -49,19 +49,7 @@ Contributions to this project are welcome! If you would like to contribute, plea
 This project is licensed under the [MIT License](LICENSE).
 
 #### Calender Month View
-![Calender Month View](/screenshots/calender-month-view.png)
+![Calender Month View](/documentation/screenshots/calender-month-view.png)
 
-#### Calender Week View
-![Calender Week View](/screenshots/calender-week-view.png)
-
-#### Calender Day View
-![Calender Day View](/screenshots/calender-day-view.png)
-
-#### List View
-![List View](/screenshots/list-view.png)
-
-#### Table View
-![Table View](/screenshots/table-view.png)
-
-#### Add Default Contacts
-![Add Default Contacts](/screenshots/add-default-contacts.png)
+#### Other screens
+**[Other screens](/documentation/screens.md)**
